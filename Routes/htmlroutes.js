@@ -1,5 +1,5 @@
 const path = require('path');
-const db = require('../models');
+const db = require('../Models');
 const router = require('express').Router();
 
 // Home page get route
