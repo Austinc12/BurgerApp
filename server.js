@@ -25,8 +25,8 @@ mongoose.connect(
     console.log("Connected to Mongo");
   }
 );
-app.use(require("./routes/apiRoutes.js"));
-app.use(require("./routes/htmlRoutes.js"));
+app.use(require("/Routes/Api-routes.js"));
+app.use(require("./routes/htmlroutes.js"));
 
 app.listen(PORT, () => {
   console.log(`Running on localhost:${PORT}!`);
