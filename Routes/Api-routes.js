@@ -1,6 +1,7 @@
 const db = require("../models");
 const router = require("express").Router();
 
+// Add a new exercise
 router.put("/api/workouts/:id", (request, res) => {
   db.Workout.findOneAndUpdate(
     { _id: request.params.id },
@@ -15,6 +16,7 @@ router.put("/api/workouts/:id", (request, res) => {
     });
 });
 
+// Create a new workout
 router.post('/api/workouts', function({ body }, res) {
   db.Workout
       .create(body)
@@ -25,6 +27,9 @@ router.post('/api/workouts', function({ body }, res) {
           console.log(err);
       });
 });
+
+
+// Show stats using range
 router.get("/api/workouts/range", function(request, res) {
   db.Workout.find({}).limit(7)
   .then(dbWorkouts => {
@@ -35,6 +40,7 @@ router.get("/api/workouts/range", function(request, res) {
   });
 });    
 
+// Create new field for total duration of workouts using $addFields aggregation
 router.get('/api/workouts', (request, res) =>{
   db.Workout.aggregate([
     {
