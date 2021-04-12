@@ -4,7 +4,7 @@ var mongoose = require("mongoose");
 
 var PORT = process.env.PORT || 3000;
 
-var db = require("./models");
+var db = require("./Models");
 var app = express();
 
 app.use(logger("dev"));
@@ -25,8 +25,8 @@ mongoose.connect(
     console.log("Connected to Mongo");
   }
 );
-app.use(require("/Routes/Api-routes.js"));
-app.use(require("./routes/htmlroutes.js"));
+app.use(require("./Routes/Api-routes.js"));
+app.use(require("./Routes/htmlroutes.js"));
 
 app.listen(PORT, () => {
   console.log(`Running on localhost:${PORT}!`);
